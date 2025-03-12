@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Load Forecasting</title>
+    <style>
+        /* General Page Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #0073e6, #00b4db); /* Gradient blue background */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Centered Card Styling */
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            background: #ffffff;  /* White card background */
+            padding: 20px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow effect */
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: #0073e6; /* Blue color for title */
+        }
+
+        /* Form Styling */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Input Blocks with Background Colors */
+        .input-block {
+            background: #f0f8ff; /* Light blue block */
+            padding: 10px;
+            width: 80%;
+            margin: 8px 0;
+            border-radius: 8px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        label {
+            font-size: 16px;
+            color: #333; /* Darker text */
+        }
+
+        .input-container {
+            display: flex;
+            align-items: center;
+            width: 60%;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .unit {
+            margin-left: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Button Styling */
+        button {
+            background-color: #0073e6; /* Blue button */
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            margin-top: 15px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #005bb5; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Future Load Forecasting</h2>
+
+        <form action="http://localhost:8000/forecast" method="post">
+            <div class="input-block">
+                <label>Time & Date:</label>
+                <input type="datetime-local" name="time_date">
+            </div>
+
+            <div class="input-block">
+                <label>National Demand:</label>
+                <div class="input-container">
+                    <input type="number" name="nat_demand" required>
+                    <span class="unit">MW</span>
+                </div>
+            </div>
+
+            <div class="input-block">
+                <label>Temperature:</label>
+                <div class="input-container">
+                    <input type="number" name="T2M_toc" required>
+                    <span class="unit">°C</span>
+                </div>
+            </div>
+
+            <div class="input-block">
+                <label>Humidity:</label>
+                <div class="input-container">
+                    <input type="number" name="QV2M_toc" required>
+                    <span class="unit">%</span>
+                </div>
+            </div>
+
+            <div class="input-block">
+                <label>Cloud Cover:</label>
+                <div class="input-container">
+                    <input type="number" name="TQL_toc" required>
+                    <span class="unit">%</span>
+                </div>
+            </div>
+
+            <div class="input-block">
+                <label>Wind Speed:</label>
+                <div class="input-container">
+                    <input type="number" name="W2M_san" required>
+                    <span class="unit">m/s</span>
+                </div>
+            </div>
+
+            <button type="submit">Predict Load</button>
+        </form>
+    </div>
+</body>
+</html>
