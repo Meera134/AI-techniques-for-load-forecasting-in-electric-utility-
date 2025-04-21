@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+        h2 {
+            color: #003366;
+        }
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 8px 12px;
+            border: 1px solid #888;
+            text-align: center;
+        }
+        th {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <h2>24-Hour Load Forecast</h2>
+    <table>
+        <tr>
+            <th>Hour</th>
+            <th>Predicted Load</th>
+        </tr>
+        {% for hour, value in prediction %}
+        <tr>
+            <td>{{ hour }}</td>
+            <td>{{ value }} MW</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
